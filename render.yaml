@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: n8n
+    runtime: docker
+    plan: starter
+    region: virginia
+    autoDeploy: true
+    disk:
+      name: n8n-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: N8N_HOST
+        value: n8n-itt.onrender.com
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_PORT
+        value: "5678"
+      - key: WEBHOOK_URL
+        value: https://n8n-itt.onrender.com/
+      - key: N8N_USER_FOLDER
+        value: /data
+      - key: GENERIC_TIMEZONE
+        value: America/New_York
